@@ -1,0 +1,6 @@
+https://www.discogs.com/developers#page:home,header:home-quickstart
+
+https://auth.discogs.com/login?service=https%3A//www.discogs.com/login%3Freturn_to%3D%252Fsettings%252Fdevelopers%253F&nologin=1
+
+https://www.discogs.com/developers#page:database,header:database-search
+
