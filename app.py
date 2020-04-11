@@ -9,7 +9,7 @@ def home():
     return """
     <html><body>
         <form action="/query">
-            <input type='submit' value='I'm Feeling Lucky'>
+            <input type='submit' value="I'm Feeling Lucky">
     </body></html>
     """
 
@@ -21,4 +21,4 @@ def link():
 
 # Run app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,port=600)
