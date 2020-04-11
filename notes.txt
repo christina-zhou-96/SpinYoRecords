@@ -1,0 +1,18 @@
+notes
+----
+random should technically work unfortunately there is essentially a limit of 10.000 songs
+therefore, to get around this, i can randomize the way the 10.000 results are
+sorted.
+its not the best solution but because theres no way to request a result that
+lives past page 201, or to start a search from page 201, it seems the only way for now
+this also provides some rationale to develop the feature to select by genre more
+because genres will be smaller than the total number of albums on discog (~2mil)
+
+res
+---
+https://www.discogs.com/developers#page:home,header:home-quickstart
+
+https://auth.discogs.com/login?service=https%3A//www.discogs.com/login%3Freturn_to%3D%252Fsettings%252Fdevelopers%253F&nologin=1
+
+https://www.discogs.com/developers#page:database,header:database-search
+

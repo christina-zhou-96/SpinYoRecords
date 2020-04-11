@@ -1,5 +1,6 @@
 import discogs_client
 from read_credentials import read_credentials
+import random
 
 # Understand discogs api
 
@@ -13,12 +14,17 @@ discogs = discogs_client.Client('SpinYoRecords',
                                 user_token=DEVELOPER_KEY)
 
 # Send a query
-results = discogs.search('Sunny Came Home',
-                         type='release')
+results = discogs.search(type='master'
+                         ) # "Master' means unique release
 
-results[0].artists[0]
-# Select a random result
+# Select a random number
+results_limit = 10000
+album_position = random.randint(1, max(results_limit, results.count))
 
-# Select the link
+# Go to the album
+album = results[album_position]
+
+# Retrieve the album link
+url = album.url
 
 # Return the link
