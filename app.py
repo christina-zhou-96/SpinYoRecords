@@ -1,4 +1,5 @@
 from flask import Flask,redirect,request
+from discogs import get_random_album
 
 # Create app instance
 app = Flask(__name__)
@@ -17,7 +18,7 @@ def home():
 @app.route("/query")
 def link():
     # Scratch implementation
-    return redirect("https://www.google.com/")
+    return redirect(get_random_album())
 
 # Run app
 if __name__ == "__main__":

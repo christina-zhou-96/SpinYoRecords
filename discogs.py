@@ -24,13 +24,14 @@ def _query(discogs):
 def _random_album_link(results):
     # Select a random number
     results_limit = 10000
-    album_position = random.randint(1, max(results_limit, results.count))
+    album_position = random.randint(1, results_limit)
 
     # Go to the album
     album = results[album_position]
 
     # Retrieve the album link
-    url = album.url
+    discogs_url = "https://www.discogs.com/" # not sure why passing along the url attribute doesn't have this
+    url = discogs_url + album.url
 
     # Return the link
     return url
