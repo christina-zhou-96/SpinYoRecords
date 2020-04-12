@@ -8,6 +8,8 @@ lives past page 201, or to start a search from page 201, it seems the only way f
 this also provides some rationale to develop the feature to select by genre more
 because genres will be smaller than the total number of albums on discog (~2mil)
 
+requirements are bloated cuz i didnt use a different virtual env
+
 res
 ---
 https://www.discogs.com/developers#page:home,header:home-quickstart

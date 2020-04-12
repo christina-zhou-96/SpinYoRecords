@@ -1,6 +1,8 @@
 from flask import Flask,redirect,request
 from discogs import get_random_album
 
+# TODO: look at more advanced form builders
+
 # Create app instance
 app = Flask(__name__)
 

@@ -16,7 +16,7 @@ def _build_discogs_instance():
 
 # Send a query
 def _query(discogs):
-    
+
     # Select genres
     genre = ('Electronic', # yellow
              'Rock', # red
