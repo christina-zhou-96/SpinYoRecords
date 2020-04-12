@@ -16,31 +16,12 @@ def _build_discogs_instance():
     return discogs
 
 # Send a query
-def _query(discogs):
-
-    # Stub: Select genres
-    genre = ('Electronic', # yellow
-             'Rock', # red
-             'Jazz', # blue
-             'Pop', # pink
-             'Classical') # green
-
-    # Stub: Select styles
-    styles = ('Ambient',
-              'Drone',
-              'Shoegaze',
-              'Pop Rock',
-              'Post Rock',
-              'Hard Rock',
-              'Prog Rock',
-              'Black Metal',
-              'Folk, World, & Country',
-              'RnB/Swing',
-              'Modern'
-              )
+def _query(discogs, genre=None, style=None):
 
     # Create query
-    query = discogs.search(type='master')
+    query = discogs.search(type='master',
+                           genre=genre,
+                           style=style)
 
     return query
 

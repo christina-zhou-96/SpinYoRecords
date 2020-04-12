@@ -1,7 +1,29 @@
-from flask import Flask,redirect
+from flask import Flask,redirect,request
 from discogs import get_random_album
 
 # TODO: look at more advanced form builders
+
+
+# Stub: Select genres
+genres = ('Electronic',  # yellow
+          'Rock',  # red
+          'Jazz',  # blue
+          'Pop',  # pink
+          'Classical')  # green
+
+# Stub: Select styles
+styles = ('Ambient',
+          'Drone',
+          'Shoegaze',
+          'Pop Rock',
+          'Post Rock',
+          'Hard Rock',
+          'Prog Rock',
+          'Black Metal',
+          'Folk, World, & Country',
+          'RnB/Swing',
+          'Modern'
+          )
 
 # Create app instance
 app = Flask(__name__)
@@ -14,6 +36,14 @@ def home():
     <h2> Spin yo records </h2>
         <form action="/query">
             <input type='submit' value="I'm Feeling Lucky">
+        </form>
+        <form action="/query">
+            <input type='submit' name='genre' value="Electronic">
+            <input type='submit' name='genre' value="Rock">
+            <input type='submit' name='genre' value="Jazz">
+            <input type='submit' name='genre' value="Pop">
+            <input type='submit' name='genre' value="Classical">
+        </form>
     </body></html>
     """
 
@@ -32,7 +62,10 @@ def about():
 @app.route("/query")
 def link():
     # Scratch implementation
-    return redirect(get_random_album())
+    genre = request.args.get("genre")
+    url = f"https://www.google.com/search?q={genre}"
+
+    return redirect(url)
 
 # Run app
 if __name__ == "__main__":
