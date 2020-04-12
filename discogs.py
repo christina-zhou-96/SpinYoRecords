@@ -16,12 +16,41 @@ def _build_discogs_instance():
 
 # Send a query
 def _query(discogs):
-    results = discogs.search(type='master'
-                             ) # "Master' means unique release
+
+    # Randomize sorting
+    def __randomize_sorting(type):
+
+        # Data structures
+        # Possible values as noted in the official docs
+        sorting_cats = ('year',
+                        'title',
+                        'format')
+
+        sorting_order = ('asc',
+                         'desc')
+
+        # Randomize sorting category.
+        def ___get_random_sort():
+            return random.choice(sorting_cats)
+
+        # Randomize way it's sorted (ascending or descending.)
+        def ___get_random_sort_order():
+            return random.choice(sorting_order)
+
+        if type == 'sort':
+            ___get_random_sort()
+        if type == 'sort_order':
+            ___get_random_sort_order()
+
+    results = discogs.search(type='master', # "Master' means unique release
+                             sort=__randomize_sorting('sort'),
+                             sort_order=__randomize_sorting('sort_order')
+                             )
     return results
 
 # Return a random album link
 def _random_album_link(results):
+
     # Select a random number
     results_limit = 10000
     album_position = random.randint(1, results_limit)

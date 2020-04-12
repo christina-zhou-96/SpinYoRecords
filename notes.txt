@@ -1,7 +1,7 @@
 notes
 ----
 random should technically work unfortunately there is essentially a limit of 10.000 songs
-therefore, to get around this, i can randomize the way the 10.000 results are
+therefore, to get around this, i randomize the way the 10.000 results are
 sorted.
 its not the best solution but because theres no way to request a result that
 lives past page 201, or to start a search from page 201, it seems the only way for now
@@ -16,3 +16,6 @@ https://auth.discogs.com/login?service=https%3A//www.discogs.com/login%3Freturn_
 
 https://www.discogs.com/developers#page:database,header:database-search
 
+https://www.discogs.com/developers#page:database,header:database-artist-releases
+
+https://www.discogs.com/developers#page:database,header:database-master-release
