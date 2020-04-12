@@ -7,6 +7,7 @@ CREDENTIALS_FILE = 'discogs_api_key.txt'
 
 # Create discogs connection
 def _build_discogs_instance():
+
     DEVELOPER_KEY = read_credentials(CREDENTIALS_FILE)
 
     discogs = discogs_client.Client('SpinYoRecords',
@@ -59,13 +60,16 @@ def _random_album(query, discogs):
 
 # Get the album url
 def _random_album_url(album):
-    # TODO: fix url
-    url = album.url
+
+    discogs_url = "https://www.discogs.com/" # not sure why passing along the url attribute doesn't have this
+
+    url = discogs_url + album.url
 
     return url
 
 # Outer function
 def get_random_album():
+
     discogs = _build_discogs_instance()
     query = _query(discogs)
     random_album = _random_album(query,discogs)
