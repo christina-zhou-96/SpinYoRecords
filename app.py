@@ -17,6 +17,17 @@ def home():
     </body></html>
     """
 
+# Create ~secret~ about page.
+@app.route("/about")
+def about():
+    return"""
+    <html><body>
+        <b>
+        <a href="https://github.com/christina-zhou-96/SpinYoRecords">Code</a>
+        </b>
+    </body></html>
+    """
+
 # Backend query to discogs
 @app.route("/query")
 def link():
