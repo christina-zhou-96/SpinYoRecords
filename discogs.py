@@ -17,14 +17,14 @@ def _build_discogs_instance():
 # Send a query
 def _query(discogs):
 
-    # Select genres
+    # Stub: Select genres
     genre = ('Electronic', # yellow
              'Rock', # red
              'Jazz', # blue
              'Pop', # pink
              'Classical') # green
 
-    # Select styles
+    # Stub: Select styles
     styles = ('Ambient',
               'Drone',
               'Shoegaze',
@@ -38,57 +38,36 @@ def _query(discogs):
               'Modern'
               )
 
-    # Randomize sorting
-    def __randomize_sorting(type):
+    # Create query
+    query = discogs.search(type='master')
 
-        # Data structures
-        # Possible values as noted in the official docs
-        sorting_cats = ('year',
-                        'title',
-                        'format')
+    return query
 
-        sorting_order = ('asc',
-                         'desc')
+# Get an album
+def _random_album(query, discogs):
 
-        # Randomize sorting category.
-        def ___get_random_sort():
-            return random.choice(sorting_cats)
+    # Find total number of albums in db
+    total_album_no = query.count
 
-        # Randomize way it's sorted (ascending or descending.)
-        def ___get_random_sort_order():
-            return random.choice(sorting_order)
+    # Create a random id constrained by the total
+    rand_id = random.randint(1, total_album_no)
 
-        if type == 'sort':
-            ___get_random_sort()
-        if type == 'sort_order':
-            ___get_random_sort_order()
+    # Retrieve a random album with the random id
+    album = discogs.master(rand_id)
 
-    results = discogs.search(type='master', # "Master' means unique release
-                             sort=__randomize_sorting('sort'),
-                             sort_order=__randomize_sorting('sort_order')
-                             )
-    return results
+    return album
 
-# Return a random album link
-def _random_album_link(results):
+# Get the album url
+def _random_album_url(album):
+    # TODO: fix url
+    url = album.url
 
-    # Select a random number
-    results_limit = 10000
-    album_position = random.randint(1, results_limit)
-
-    # Go to the album
-    album = results[album_position]
-
-    # Retrieve the album link
-    discogs_url = "https://www.discogs.com/" # not sure why passing along the url attribute doesn't have this
-    url = discogs_url + album.url
-
-    # Return the link
     return url
 
 # Outer function
 def get_random_album():
     discogs = _build_discogs_instance()
-    results = _query(discogs)
-    random_album_link = _random_album_link(results)
-    return random_album_link
+    query = _query(discogs)
+    random_album = _random_album(query,discogs)
+    random_album_url = _random_album_url(random_album)
+    return random_album_url
