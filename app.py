@@ -1,4 +1,4 @@
-from flask import Flask,redirect,request
+from flask import Flask,redirect
 from discogs import get_random_album
 
 # TODO: look at more advanced form builders

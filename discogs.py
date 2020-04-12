@@ -61,9 +61,7 @@ def _random_album(query, discogs):
 # Get the album url
 def _random_album_url(album):
 
-    discogs_url = "https://www.discogs.com/" # not sure why passing along the url attribute doesn't have this
-
-    url = discogs_url + album.url
+    url = album.url
 
     return url
 
