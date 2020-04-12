@@ -1,14 +1,12 @@
 notes
 ----
-random should technically work unfortunately there is essentially a limit of 10.000 songs
-therefore, to get around this, i randomize the way the 10.000 results are
-sorted.
-its not the best solution but because theres no way to request a result that
-lives past page 201, or to start a search from page 201, it seems the only way for now
-this also provides some rationale to develop the feature to select by genre more
-because genres will be smaller than the total number of albums on discog (~2mil)
-
 requirements are bloated cuz i didnt use a different virtual env
+
+consider: what to do with albums with no yt link?
+i think theyre still valid, but it kind of negates the one click "spin the
+record" experience
+these typically do have a soundcloud, yt, or bandcamp presence, if not of
+the full album listed
 
 res
 ---
