@@ -1,6 +1,6 @@
 Get a random record! <br>
 
-Try it out at <b> https://findyosongs.herokuapp.com/ </b> <br>
+Try it out at <b> https://spinyorecord.herokuapp.com/ </b> <br>
 
 <b>
 Notes
