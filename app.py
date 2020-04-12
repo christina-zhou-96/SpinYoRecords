@@ -9,6 +9,7 @@ app = Flask(__name__)
 def home():
     return """
     <html><body>
+    <h2> Spin yo records </h2>
         <form action="/query">
             <input type='submit' value="I'm Feeling Lucky">
     </body></html>

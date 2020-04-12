@@ -16,6 +16,27 @@ def _build_discogs_instance():
 
 # Send a query
 def _query(discogs):
+    
+    # Select genres
+    genre = ('Electronic', # yellow
+             'Rock', # red
+             'Jazz', # blue
+             'Pop', # pink
+             'Classical') # green
+
+    # Select styles
+    styles = ('Ambient',
+              'Drone',
+              'Shoegaze',
+              'Pop Rock',
+              'Post Rock',
+              'Hard Rock',
+              'Prog Rock',
+              'Black Metal',
+              'Folk, World, & Country',
+              'RnB/Swing',
+              'Modern'
+              )
 
     # Randomize sorting
     def __randomize_sorting(type):
