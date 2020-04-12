@@ -1,0 +1,24 @@
+Maintenance instructions:
+
+After local changes:
+1. Update requirements file
+`pip freeze > requirements.txt`
+
+2. Commit to private branch
+
+3. Ensure that private branch can "see" credentials file
+(change .gitignore to prefix ! to the credentials.txt)
+
+4. Push private branch to heroku
+`git push heroku private:master`
+
+5. Delete private branch
+
+--------------
+For debugging:
+
+5. Login to Heroku through cmd in the root project directory
+
+6. Run logs --tail
+
+
