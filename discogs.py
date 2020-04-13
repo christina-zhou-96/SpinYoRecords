@@ -27,8 +27,9 @@ def _build_discogs_instance():
 def _query(discogs, genre, style):
 
     # Two different ways to build queries: one with and one without drilldown
+    drilldown = genre or style
 
-    if genre or style:
+    if drilldown:
 
         # Randomize sorting
         def __randomize_sorting(type):
@@ -50,7 +51,6 @@ def _query(discogs, genre, style):
 
         # Unfortunately, running `search` with a None argument doesn't work,
         # so have to break it down as below.
-
         if genre:
 
             query = discogs.search(type='master',
@@ -80,7 +80,9 @@ def _random_album(query, discogs, genre, style):
     total_album_no = query.count
 
     # Two different ways to get an album: one with and one without drilldown
-    if genre or style:
+    drilldown = genre or style
+
+    if drilldown:
 
         # Return a random album link
 
@@ -103,7 +105,9 @@ def _random_album(query, discogs, genre, style):
 def _random_album_url(album,genre,style):
 
     # Two different ways to get a url: one with and one without drilldown
-    if genre or style:
+    drilldown = genre or style
+
+    if drilldown:
         url = "https://www.discogs.com/" + album.url
     else:
         url = album.url
