@@ -62,10 +62,10 @@ def about():
 @app.route("/query")
 def link():
     # Scratch implementation
+    # genre = request.args.get("genre")
+    # url = f"https://www.google.com/search?q={genre}"
     genre = request.args.get("genre")
-    url = f"https://www.google.com/search?q={genre}"
-
-    return redirect(url)
+    return redirect(get_random_album(genre=genre))
 
 # Run app
 if __name__ == "__main__":

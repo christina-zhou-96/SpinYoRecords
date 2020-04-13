@@ -16,28 +16,31 @@ def _build_discogs_instance():
     return discogs
 
 # Send a query
-def _query(discogs, genre=None, style=None):
+def _query(discogs):
 
     # Create query
-    query = discogs.search(type='master',
-                           genre=genre,
-                           style=style)
+    query = discogs.search(type='master')
+
 
     return query
 
 # Get an album
-def _random_album(query, discogs):
+def _random_album(query, discogs, genre):
 
     # Find total number of albums in db
     total_album_no = query.count
 
-    # Create a random id constrained by the total
-    rand_id = random.randint(1, total_album_no)
+    if genre:
+        # Stub: fake randomizer
+        pass
+    else:
+        # Create a random id constrained by the total
+        rand_id = random.randint(1, total_album_no)
 
-    # Retrieve a random album with the random id
-    album = discogs.master(rand_id)
+        # Retrieve a random album with the random id
+        album = discogs.master(rand_id)
 
-    return album
+        return album
 
 # Get the album url
 def _random_album_url(album):
@@ -47,10 +50,10 @@ def _random_album_url(album):
     return url
 
 # Outer function
-def get_random_album():
+def get_random_album(genre=None):
 
     discogs = _build_discogs_instance()
     query = _query(discogs)
-    random_album = _random_album(query,discogs)
+    random_album = _random_album(query,discogs,genre)
     random_album_url = _random_album_url(random_album)
     return random_album_url
