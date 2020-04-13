@@ -1,32 +1,7 @@
 from flask import Flask,redirect,request
 from discogs import get_random_album
 
-# TODO: look at more advanced form builders
-
-
-# Stub: Select genres
-genres = ('Electronic',  # yellow
-          'Rock',  # red
-          'Jazz',  # blue
-          'Pop',  # pink
-          'Classical')  # green
-
-# Stub: Select styles
-styles = ('Ambient',
-          'Drone',
-          'Shoegaze',
-          'Pop Rock',
-          'Post Rock',
-          'Hard Rock',
-          'Prog Rock',
-          'Black Metal',
-          'Folk, World, & Country',
-          'RnB/Swing',
-          'Modern'
-          )
-
-# Create app instance
-app = Flask(__name__)
+# Data structures
 
 header_html = """
 <h2> Spin yo records </h2>"""
@@ -61,6 +36,9 @@ styles_form_html = """
             <input type='submit' name='style' value="Modern">
         </form>
         """
+
+# Create app instance
+app = Flask(__name__)
 
 # Create homepage with button
 @app.route("/")
