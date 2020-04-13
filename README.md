@@ -61,15 +61,13 @@ https://www.discogs.com/developers#page:database,header:database-artist-releases
 6. More on master object <br>
 https://www.discogs.com/developers#page:database,header:database-master-release
 
-7. Tip from radum on discogs forums <br>
+7. Tip from radum on discogs forums on randomizing albums<br>
 https://www.discogs.com/forum/thread/815327?page=1#8095702 <br>
 
-<b>Contributions</b> <br>
-Select genre: I'm thinking about selecting by my favorite genres (in discogs.py).
-However, I wonder if that takes away from the random/discovery element.
-Also, I don't know how to make more complicated forms, and I wouldn't know
-how to make them look attractive but still retain the sparse look.
+8. Tip from furas on stackoverflow on creating buttons<br>
+https://stackoverflow.com/questions/61178220/html-form-python-flask-have-a-button-submit-a-unique-parameter-to-method/61179186#61179186 <br>
 
+<b>Contributions</b> <br>
 No Youtube playlist?: Some of these albums don't have a readily accessibly
 Youtube playlist in the sidebar. Personally, I then Google the albums and find
 at least one song by the same artist to play. So, I think these albums are still
