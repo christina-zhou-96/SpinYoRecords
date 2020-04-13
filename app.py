@@ -31,6 +31,7 @@ app = Flask(__name__)
 # Create homepage with button
 @app.route("/")
 def home():
+    # Currently list of genres is hardcoded in
     return """
     <html><body>
     <h2> Spin yo records </h2>
@@ -61,9 +62,7 @@ def about():
 # Backend query to discogs
 @app.route("/query")
 def link():
-    # Scratch implementation
-    # genre = request.args.get("genre")
-    # url = f"https://www.google.com/search?q={genre}"
+
     genre = request.args.get("genre")
     return redirect(get_random_album(genre=genre))
 
