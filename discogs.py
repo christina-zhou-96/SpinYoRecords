@@ -5,6 +5,14 @@ import random
 # Data structures
 CREDENTIALS_FILE = 'discogs_api_key.txt'
 
+# Possible values as noted in the official docs
+sorting_cats = ('year',
+                'title',
+                'format')
+
+sorting_order = ('asc',
+                 'desc')
+
 # Create discogs connection
 def _build_discogs_instance():
 
@@ -16,22 +24,14 @@ def _build_discogs_instance():
     return discogs
 
 # Send a query
-def _query(discogs, genre):
+def _query(discogs, genre, style):
 
-    # Two different ways to build queries: one with and one without genre
+    # Two different ways to build queries: one with and one without drilldown
 
-    if genre:
+    if genre or style:
+
         # Randomize sorting
         def __randomize_sorting(type):
-
-            # Data structures
-            # Possible values as noted in the official docs
-            sorting_cats = ('year',
-                            'title',
-                            'format')
-
-            sorting_order = ('asc',
-                             'desc')
 
             # Randomize sorting category.
             def ___get_random_sort():
@@ -46,27 +46,41 @@ def _query(discogs, genre):
             if type == 'sort_order':
                 ___get_random_sort_order()
 
-        # This query will be capped at 10,000
-        query = discogs.search(type='master',  # "Master' means unique release
-                               sort=__randomize_sorting('sort'),
-                               sort_order=__randomize_sorting('sort_order'),
-                               genre=genre
-                               )
+        # These queries will be capped at 10,000
+
+        # Unfortunately, running `search` with a None argument doesn't work,
+        # so have to break it down as below.
+
+        if genre:
+
+            query = discogs.search(type='master',
+                                   sort=__randomize_sorting('sort'),
+                                   sort_order=__randomize_sorting('sort_order'),
+                                   genre=genre
+                                   )
+
+        if style:
+
+            query = discogs.search(type='master',
+                                   sort=__randomize_sorting('sort'),
+                                   sort_order=__randomize_sorting('sort_order'),
+                                   style=style
+                                   )
 
     else:
         # Create query
-        query = discogs.search(type='master')
+        query = discogs.search(type='master') # "Master' means unique release
 
     return query
 
 # Get an album
-def _random_album(query, discogs, genre):
+def _random_album(query, discogs, genre, style):
 
     # Find total number of albums in db
     total_album_no = query.count
 
-    # Two different ways to get an album: one with genre and one without genre
-    if genre:
+    # Two different ways to get an album: one with and one without drilldown
+    if genre or style:
 
         # Return a random album link
 
@@ -86,9 +100,10 @@ def _random_album(query, discogs, genre):
     return album
 
 # Get the album url
-def _random_album_url(album,genre):
+def _random_album_url(album,genre,style):
 
-    if genre:
+    # Two different ways to get a url: one with and one without drilldown
+    if genre or style:
         url = "https://www.discogs.com/" + album.url
     else:
         url = album.url
@@ -96,10 +111,10 @@ def _random_album_url(album,genre):
     return url
 
 # Outer function
-def get_random_album(genre=None):
+def get_random_album(genre=None,style=None):
 
     discogs = _build_discogs_instance()
-    query = _query(discogs,genre)
-    random_album = _random_album(query,discogs,genre)
-    random_album_url = _random_album_url(random_album,genre)
+    query = _query(discogs,genre,style)
+    random_album = _random_album(query,discogs,genre,style)
+    random_album_url = _random_album_url(random_album,genre,style)
     return random_album_url

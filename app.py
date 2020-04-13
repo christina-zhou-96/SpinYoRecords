@@ -45,6 +45,18 @@ def home():
             <input type='submit' name='genre' value="Pop">
             <input type='submit' name='genre' value="Classical">
         </form>
+        <form action="/query">
+            <input type='submit' name='style' value="Ambient">
+            <input type='submit' name='style' value="Drone">
+            <input type='submit' name='style' value="Shoegaze">
+            <input type='submit' name='style' value="Pop Rock">
+            <input type='submit' name='style' value="Post Rock">
+            <input type='submit' name='style' value="Hard Rock">
+            <input type='submit' name='style' value="Prog Rock">
+            <input type='submit' name='style' value="Black Metal">
+            <input type='submit' name='style' value="Folk, World, & Country">
+            <input type='submit' name='style' value="Modern">
+        </form>
     </body></html>
     """
 
@@ -64,7 +76,9 @@ def about():
 def link():
 
     genre = request.args.get("genre")
-    return redirect(get_random_album(genre=genre))
+    style = request.args.get("style")
+    return redirect(get_random_album(genre=genre,
+                                     style=style))
 
 # Run app
 if __name__ == "__main__":
