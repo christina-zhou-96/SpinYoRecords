@@ -28,16 +28,16 @@ styles = ('Ambient',
 # Create app instance
 app = Flask(__name__)
 
-# Create homepage with button
-@app.route("/")
-def home():
-    # Currently list of genres is hardcoded in
-    return """
-    <html><body>
-    <h2> Spin yo records </h2>
+header_html = """
+<h2> Spin yo records </h2>"""
+
+all_form_html = """
         <form action="/query">
             <input type='submit' value="I'm Feeling Lucky">
         </form>
+        """
+
+genres_form_html = """
         <form action="/query">
             <input type='submit' name='genre' value="Electronic">
             <input type='submit' name='genre' value="Rock">
@@ -45,6 +45,9 @@ def home():
             <input type='submit' name='genre' value="Pop">
             <input type='submit' name='genre' value="Classical">
         </form>
+        """
+
+styles_form_html = """
         <form action="/query">
             <input type='submit' name='style' value="Ambient">
             <input type='submit' name='style' value="Drone">
@@ -57,8 +60,21 @@ def home():
             <input type='submit' name='style' value="Folk, World, & Country">
             <input type='submit' name='style' value="Modern">
         </form>
-    </body></html>
-    """
+        """
+
+# Create homepage with button
+@app.route("/")
+def home():
+    # Currently list of genres is hardcoded in
+    return """
+            <html><body>""" \
+           + header_html \
+           + all_form_html \
+           + genres_form_html \
+           + styles_form_html + \
+           """
+           </body></html>
+           """
 
 # Create ~secret~ about page.
 @app.route("/about")
