@@ -22,6 +22,7 @@ genres_form_html = """
         </form>
         """
 
+# Folk is Folk, World, & Country, but the full phrase doesn't work with discogs api
 styles_form_html = """
         <form action="/query">
             <input type='submit' name='style' value="Ambient">
@@ -32,7 +33,7 @@ styles_form_html = """
             <input type='submit' name='style' value="Hard Rock">
             <input type='submit' name='style' value="Prog Rock">
             <input type='submit' name='style' value="Black Metal">
-            <input type='submit' name='style' value="Folk, World, & Country">
+            <input type='submit' name='style' value="Folk">
             <input type='submit' name='style' value="Modern">
         </form>
         """
