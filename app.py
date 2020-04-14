@@ -1,10 +1,10 @@
-from flask import Flask,redirect,request
+from flask import Flask,redirect,request,render_template
 from discogs import get_random_album
 
 # Data structures
 
 header_html = """
-<h2> Spin yo records </h2>"""
+"""
 
 all_form_html = """
         <form action="/query">
@@ -45,16 +45,7 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     # Currently list of genres is hardcoded in
-    return """
-            <html><body>""" \
-           + header_html \
-           + all_form_html \
-           + genres_form_html \
-           + styles_form_html + \
-           """
-           </body></html>
-           """
-
+    return render_template('home.html')
 # Create ~secret~ about page.
 @app.route("/about")
 def about():
