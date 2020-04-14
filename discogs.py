@@ -86,9 +86,11 @@ def _random_album(query, discogs, genre, style):
 
         # Return a random album link
 
-        # Select a random number, given the max of 10,000
+        # Select a random number, given either 10,000 or the lower number
+        # of releases in this genre (for instance, Shoegaze only has about 5000
+        # releases, so 5000 would be the constraint in this case)
         query_limit = 9999
-        album_position = random.randint(0, query_limit)
+        album_position = random.randint(0, min(total_album_no,query_limit))
         # Go to the album
         album = query[album_position]
 
