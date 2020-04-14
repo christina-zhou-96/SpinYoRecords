@@ -64,8 +64,20 @@ https://www.discogs.com/developers#page:database,header:database-master-release
 7. Tip from radum on discogs forums on randomizing albums<br>
 https://www.discogs.com/forum/thread/815327?page=1#8095702 <br>
 
-8. Tip from furas on stackoverflow on creating buttons<br>
+Stupid HTML stuff <br>
+Only read if you want to reduce your brain cells.
+
+1. Tip from furas on stackoverflow on creating buttons<br>
 https://stackoverflow.com/questions/61178220/html-form-python-flask-have-a-button-submit-a-unique-parameter-to-method/61179186#61179186 <br>
+
+2. Tip from Elisabeth Strunk on stackoverflow on render_html as part of the flask package<br>
+https://stackoverflow.com/questions/61192187/refactor-rendering-flask-form-with-multiple-similar-inputs<br>
+
+3. A more guided introduction to render_html<br>
+https://code-maven.com/using-templates-in-flask<br>
+
+4. COLORS; in html<br>
+https://www.includehelp.com/code-snippets/change-button-color-in-html.aspx<br>
 
 <b>Contributions</b> <br>
 No Youtube playlist?: Some of these albums don't have a readily accessibly
