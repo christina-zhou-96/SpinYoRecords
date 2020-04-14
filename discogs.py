@@ -84,8 +84,6 @@ def _random_album(query, discogs, genre, style):
 
     if drilldown:
 
-        # Return a random album link
-
         # Select a random number, given either 10,000 or the lower number
         # of releases in this genre (for instance, Shoegaze only has about 5000
         # releases, so 5000 would be the constraint in this case)
