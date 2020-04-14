@@ -80,6 +80,8 @@ https://code-maven.com/using-templates-in-flask<br>
 https://www.includehelp.com/code-snippets/change-button-color-in-html.aspx<br>
 
 <b>Contributions</b> <br>
+FRONT END HELP WANTED
+
 No Youtube playlist?: Some of these albums don't have a readily accessibly
 Youtube playlist in the sidebar. Personally, I then Google the albums and find
 at least one song by the same artist to play. So, I think these albums are still
